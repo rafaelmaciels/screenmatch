@@ -1,3 +1,4 @@
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
@@ -25,8 +26,19 @@ public class Principal {
         serie.setAnoDeLancamento(2000);
         serie.exibeFichaTecnica();
         serie.setTemporadas(12);
-        serie.setEpisodiosPorTemrpora(7);
-        serie.setMinutosPorEpisodio(45);
+        serie.setEpisodiosPorTemporada(7);
+        serie.setMinutosPorEpisodio(60);
         System.out.println("Média de duração em minutos: " + serie.getDuracaoEmMinutos());
+
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Efeito Borboleta");
+        outroFilme.setCategoria("Ficção Cientifica");
+        outroFilme.setDuracaoEmMinutos(184);
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(serie);
+        System.out.println("O total de minutagens do filme é :" + calculadora.getTempoTotal());
     }
 }

@@ -1,4 +1,6 @@
+import br.com.alura.screenmatch.FiltroRecomendacao;
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
@@ -39,6 +41,15 @@ public class Principal {
         calculadora.inclui(meuFilme);
         calculadora.inclui(outroFilme);
         calculadora.inclui(serie);
-        System.out.println("O total de minutagens do filme é :" + calculadora.getTempoTotal());
+        System.out.println("O total de minutagens do serie é :" + calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(); // Null está dando erro ao inserir o nome da Serie.
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtra(episodio);
     }
 }

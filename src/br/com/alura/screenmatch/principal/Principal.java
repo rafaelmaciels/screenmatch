@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.Classificavel;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -8,10 +10,8 @@ import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Interestelar");
+        Filme meuFilme = new Filme("Interestelar", 2014);
         meuFilme.setCategoria("Ficção Cientifica");
-        meuFilme.setAnoDeLancamento(2014);
         meuFilme.setDuracaoEmMinutos(240);
         meuFilme.setIncluidoNoPlano(true
         );
@@ -25,26 +25,22 @@ public class Principal {
         System.out.println(meuFilme.pegaMediaAvaliacoes());
         System.out.println("A Média da avaliações do filme é: " + meuFilme.pegaMediaAvaliacoes());
 
-        Serie serie = new Serie();
-        serie.setNome("Lost");
-        serie.setAnoDeLancamento(2000);
-        serie.exibeFichaTecnica();
-        serie.setTemporadas(12);
-        serie.setEpisodiosPorTemporada(7);
-        serie.setMinutosPorEpisodio(60);
-        System.out.println("Média de duração em minutos: " + serie.getDuracaoEmMinutos());
+        Serie lost = new Serie("Lost", 2000);
+        lost.exibeFichaTecnica();
+        lost.setTemporadas(12);
+        lost.setEpisodiosPorTemporada(7);
+        lost.setMinutosPorEpisodio(60);
+        System.out.println("Média de duração em minutos: " + lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Efeito Borboleta");
+        Filme outroFilme = new Filme("Efeito Borboleta", 2014);
         outroFilme.setCategoria("Ficção Cientifica");
-        outroFilme.setAnoDeLancamento(2014);
         outroFilme.setDuracaoEmMinutos(184);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(meuFilme);
         calculadora.inclui(outroFilme);
-        calculadora.inclui(serie);
-        System.out.println("O total de minutagens do serie é :" + calculadora.getTempoTotal());
+        calculadora.inclui(lost);
+        System.out.println("O total de minutagens do lost é :" + calculadora.getTempoTotal());
 
         Classificavel.FiltroRecomendacao filtro = new Classificavel.FiltroRecomendacao();
         filtro.filtra(meuFilme);
@@ -55,10 +51,9 @@ public class Principal {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        var filmeDoRafael = new Filme();
-        filmeDoRafael.setNome("As tranças do Rei Careca");
+        var filmeDoRafael = new Filme("As traças do rei careca", 1880);
+        //filmeDoRafael.setNome("As tranças do Rei Careca");
         filmeDoRafael.setDuracaoEmMinutos(160);
-        filmeDoRafael.setAnoDeLancamento(1880);
         filmeDoRafael.avalia(10);
 
         // Array List
@@ -71,6 +66,8 @@ public class Principal {
         System.out.println("Primeiro filme: " + listaDeFilme.get(0).getNome());
         System.out.println(listaDeFilme);
         System.out.println("toString do filme: " + listaDeFilme.get(0).toString());
+
+        
 
     }
 }

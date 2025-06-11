@@ -1,6 +1,6 @@
 package br.com.alura.screenmatch.modelos;
 
-public class Serie extends Titulo {
+public class Serie extends Titulo implements Comparable<Titulo> {
     private int temporadas;
     private boolean ativa;
     private int episodiosPorTemporada;
@@ -45,5 +45,10 @@ public class Serie extends Titulo {
     @Override
     public int getDuracaoEmMinutos() {
         return temporadas * episodiosPorTemporada * minutosPorEpisodio;
+    }
+
+    @Override
+    public String toString() {
+        return "Série: " + this.getNome() + "(" + this.getAnoDeLancamento() + ")";
     }
 }
